@@ -1,0 +1,5 @@
+##ignore this file##
+.idea/workspace.xml
+common/__pycache__
+pages/__pycache__
+test_case/__pycache__
