@@ -1,10 +1,11 @@
 import unittest
 from BSTestRunner import BSTestRunner
+from BeautifulReport import BeautifulReport  #新的可视化报告模板
 import os
 import time
 
-def all_case():
-    '''加载指定目录下的所有用例'''
+def BSTestRunner_all_case():
+    '''报告模板一'''
     #指定测试用例路径
     curpath = os.path.dirname(os.path.realpath(__file__))
     casepath = os.path.join(curpath,"test_case")
@@ -24,5 +25,21 @@ def all_case():
                              )
         runner.run(discover)
 
+def BeautifulReport_all_case():
+    '''报告模板二'''
+    curpath = os.path.dirname(os.path.realpath(__file__))
+    casepath = os.path.join(curpath,"test_case")
+    pattern= "test*.py"
+
+    #定义报告的路径和文件格式
+    now = time.strftime("%Y-%m-%d %H_%M_%S")
+    report_path = os.path.join(curpath,"reports")
+
+    suite_tests = unittest.defaultTestLoader.discover(casepath,pattern=pattern,top_level_dir=None)
+    BeautifulReport(suite_tests).report(filename=now+'_baidu_test', description='阿里云听', log_path=report_path)
+
+
+
 if __name__=="__main__":
-    all_case()
+    # BSTestRunner_all_case()
+    BeautifulReport_all_case()
