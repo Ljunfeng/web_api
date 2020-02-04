@@ -3,7 +3,7 @@ import json
 
 import requests
 
-from common.readexcel import ExcelUtil
+from common.read_excel import ExcelUtil
 from common.writeexcel import copy_excel, Write_excel
 
 def send_requests(s, testdata):

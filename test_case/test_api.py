@@ -4,7 +4,7 @@ import ddt
 import os
 import requests
 from common import base_api
-from common import readexcel
+from common import read_excel
 from common import writeexcel
 
 # 获取demo_api.xlsx路径
@@ -15,7 +15,7 @@ testxlsx = os.path.join(curpath, "demo_api.xlsx")
 report_path = os.path.join(os.path.dirname(curpath), "report")
 reportxlsx = os.path.join(report_path, "result.xlsx")
 
-testdata = readexcel.ExcelUtil(testxlsx).dict_data()
+testdata = read_excel.ExcelUtil(testxlsx).dict_data()
 @ddt.ddt
 class Test_api(unittest.TestCase):
     @classmethod
